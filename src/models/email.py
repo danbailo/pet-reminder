@@ -10,6 +10,14 @@ class Email:
     __user: str = None
     __password: str = None
 
+    def __init__(
+        self,
+        user: Optional[str] = None,
+        password: Optional[str] = None
+    ) -> None:
+        self.__user = user
+        self.__password = password
+
     @property
     def user(self):
         if self.__user is None:
@@ -24,15 +32,7 @@ class Email:
         else:
             return self.__password
 
-    def __init__(
-        self,
-        user: Optional[str] = None,
-        password: Optional[str] = None
-    ) -> None:
-        self.__user = user
-        self.__password = password
-
-    def send_email(self) -> None:
+    def send_message(self) -> None:
         infos = {
             'user': self.user,
             'password': self.password,
