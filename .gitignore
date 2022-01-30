@@ -9,3 +9,6 @@ venv.bak/
 
 # vscode
 vscode/
+
+# pyenv local version
+.python-version
