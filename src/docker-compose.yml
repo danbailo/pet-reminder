@@ -1,0 +1,8 @@
+version: "1"
+
+services:
+  pet_reminder:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: python3 main.py
