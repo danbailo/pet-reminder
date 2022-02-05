@@ -1,6 +1,13 @@
 version: "1"
 
 services:
+  pet_reminder_test:
+    image: pet_reminder_unittest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: python3 -m unittest discover tests
+
   pet_reminder:
     image: pet_reminder_image
     build:
