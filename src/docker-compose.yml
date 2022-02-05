@@ -5,4 +5,5 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    image: pet_reminder
     command: python3 main.py
