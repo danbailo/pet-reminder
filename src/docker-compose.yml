@@ -2,8 +2,19 @@ version: "1"
 
 services:
   pet_reminder:
+    image: pet_reminder_image
     build:
       context: .
       dockerfile: Dockerfile
-    image: pet_reminder
     command: python3 main.py
+
+  postgres:
+      image: postgres:14
+      restart: always
+      environment:
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=postgres
+      ports:
+        - '5438:5432'
+      volumes: 
+        - ./postgres-data:/var/lib/postgresql/data
