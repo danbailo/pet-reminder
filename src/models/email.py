@@ -2,7 +2,7 @@ from typing import Optional
 
 import yagmail
 
-from serializers.email_serializer import LoginSerializer, ContentSerializer
+from serializers.email_serializer import EmailSerializer, LoginSerializer
 from defaults import EMAIL_LOGIN, EMAIL_PASSWORD
 
 
@@ -37,11 +37,8 @@ class Email:
             'user': self.user,
             'password': self.password,
         }
-        user = LoginSerializer(**infos).dict()
-        contents = ContentSerializer()
-        yag = yagmail.SMTP(**user)
-        yag.send(
-            to='danbailoufms@gmail.com',
-            subject=contents.subject,
-            contents=[contents.html, yagmail.inline('../assets/money.gif')])
+        yag = yagmail.SMTP(**LoginSerializer(**infos).dict())
+        body = EmailSerializer().dict(by_alias=True)
+        body['to'] = [recipient['to'] for recipient in body.get('to', {})]
+        yag.send(**body)
         yag.close()
