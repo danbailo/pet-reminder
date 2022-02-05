@@ -12,3 +12,6 @@ vscode/
 
 # pyenv local version
 .python-version
+
+# docker database
+postgres-data
