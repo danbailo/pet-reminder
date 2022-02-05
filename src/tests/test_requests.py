@@ -1,9 +1,4 @@
 import unittest
-import requests
-import json
-
-import responses
-from responses import matchers
 
 from models.reminder import Reminder
 from utils import load_json
