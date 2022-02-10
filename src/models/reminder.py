@@ -38,7 +38,4 @@ class Reminder:
 
     def has_new_payment(self) -> bool:
         now = datetime.datetime.now().date()
-        if now == self._get_last_payment():
-            return True
-        else:
-            False
+        return now == self._get_last_payment()
