@@ -13,8 +13,9 @@ Scholars who are part of the PET receive a monthly support grant, and this proje
 ### DONE
 * Check if has a new payment;
 * Send email reminder.
+* Added target emails;
 
 ### TO DO
+* Add loggers to debug the app;
 * How to install and run the app;
-* Add target emails;
 * Deploy the application;
